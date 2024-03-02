@@ -15,5 +15,79 @@
       update their personal information and create a list of their favorite
       movies.
     </p>
+
+    <table>
+      <thead>
+        <th>Request</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>
+          Response Data<br />
+          Body Format
+        </th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Get a list of movies</td>
+          <td>/movies</td>
+          <td>READ</td>
+          <td>A JSON object holding data about all movies</td>
+        </tr>
+        <tr>
+          <td>Return data about a single <br />movie by title to the user</td>
+          <td>/movies/[title]</td>
+          <td>READ</td>
+          <td>
+            A JSON object holding data(title, genre, director) about a single
+            movie by title to the user
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Return data about a <br />genre(description) by name/title (e.g.,
+            "Thriller")
+          </td>
+          <td>/movies/genre/[genre]</td>
+          <td>READ</td>
+          <td>A JSON object containing movie titles and other data by genre</td>
+        </tr>
+        <tr>
+          <td>Return data about a director by name</td>
+          <td>/movies/director/[directorName]</td>
+          <td>READ</td>
+          <td>A JSON object showing data about the director</td>
+        </tr>
+        <tr>
+          <td>Allow new users to register</td>
+          <td>/register</td>
+          <td>POST</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Allow users to update their user info(username)</td>
+          <td>/register/[username]</td>
+          <td>PUT</td>
+          <td>N/A</td>
+        </tr>
+        <tr>
+          <td>Allow users to add a movie to their list of favorites</td>
+          <td>/register/[username]/movies/favorites</td>
+          <td>PUT</td>
+          <td>A text to the user showing that a movie has been added</td>
+        </tr>
+        <tr>
+          <td>Allow users to remove a movie from their list of favorites</td>
+          <td>/register/[username]/movies/favorites</td>
+          <td>DELETE</td>
+          <td>A text to the user showing that a movie has been removed</td>
+        </tr>
+        <tr>
+          <td>Allow existing users to deregister</td>
+          <td>/register/remove/[username]</td>
+          <td>DELETE</td>
+          <td>A text to the user showing that their email has been removed</td>
+        </tr>
+      </tbody>
+    </table>
   </body>
 </html>
