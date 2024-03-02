@@ -59,31 +59,31 @@
         </tr>
         <tr>
           <td>Allow new users to register</td>
-          <td>/register</td>
+          <td>/user</td>
           <td>POST</td>
           <td>N/A</td>
         </tr>
         <tr>
           <td>Allow users to update their user info(username)</td>
-          <td>/register/[username]</td>
+          <td>/user/[username]</td>
           <td>PUT</td>
           <td>N/A</td>
         </tr>
         <tr>
           <td>Allow users to add a movie to their list of favorites</td>
-          <td>/register/[username]/movies/favorites</td>
+          <td>/user/[username]/movies/[movieID]</td>
           <td>PUT</td>
           <td>A text to the user showing that a movie has been added</td>
         </tr>
         <tr>
           <td>Allow users to remove a movie from their list of favorites</td>
-          <td>/register/[username]/movies/favorites</td>
+          <td>/register/[username]/movies/[movieID]</td>
           <td>DELETE</td>
           <td>A text to the user showing that a movie has been removed</td>
         </tr>
         <tr>
           <td>Allow existing users to deregister</td>
-          <td>/register/remove/[username]</td>
+          <td>/user/[username]</td>
           <td>DELETE</td>
           <td>A text to the user showing that their email has been removed</td>
         </tr>
