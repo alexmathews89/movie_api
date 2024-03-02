@@ -1,6 +1,9 @@
 const express = require("express"),
+  bodyParser = require("body-parser"),
   morgan = require("morgan");
 const app = express();
+
+app.use(bodyParser.json());
 
 let topMovies = [
   {
@@ -81,39 +84,43 @@ app.get("/movies/genre/:genreName", (req, res) => {
   const genre = topMovies.find((movie) => movie.genre === genreName);
 
   if (genre) {
-    res.status(200).json(movie);
+    res.status(200).json(genre);
   } else {
     res.status(400).send("no such genre");
   }
 });
 
 app.get("/movies/director/:directorName", (req, res) => {
-  const dirctorName = req.params.directorName;
-  res.send("Will send info on " + dirctorName + " director");
+  const directorName = req.params.directorName;
+  res.send("Will send info on " + directorName + " as a director");
 });
 
-app.post("/register", (req, res) => {
+app.post("/users", (req, res) => {
   res.send("User Registration Page");
 });
 
-app.put("/register/:username", (req, res) => {
+app.put("/users/:username", (req, res) => {
   const username = req.params.username;
   res.send("Will allow " + username + " to updated their information");
 });
 
-app.put("/register/:username/movies/favorites", (req, res) => {
+app.put("/users/:username/movies/:movieID", (req, res) => {
   const username = req.params.username;
-  res.send("Will allow " + username + " to add a movie to their favorites");
-});
-
-app.delete("/register/:username/movies/favorites", (req, res) => {
-  const username = req.params.username;
+  const movie = req.params.movieID;
   res.send(
-    "Will allow " + username + " to remove a movie from their favorites"
+    "Will allow " + username + " to add a " + movie + "to their favorites"
   );
 });
 
-app.delete("/register/remove/:username", (req, res) => {
+app.delete("/users/:username/movies/:movieID", (req, res) => {
+  const username = req.params.username;
+  const movie = req.params.movieID;
+  res.send(
+    "Will allow " + username + " to remove a " + movie + " from their favorites"
+  );
+});
+
+app.delete("/users/:username", (req, res) => {
   const username = req.params.username;
   res.send("Will allow " + username + " to remove their information");
 });
