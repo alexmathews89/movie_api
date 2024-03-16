@@ -42,7 +42,7 @@
             movie by title to the user
           </td>
         </tr>
-        <tr>
+        <!--<tr>
           <td>
             Return data about a <br />genre(description) by name/title (e.g.,
             "Thriller")
@@ -56,18 +56,18 @@
           <td>/movies/director/[directorName]</td>
           <td>READ</td>
           <td>A JSON object showing data about the director</td>
-        </tr>
+        </tr>-->
         <tr>
           <td>Allow new users to register</td>
           <td>/user</td>
           <td>POST</td>
-          <td>N/A</td>
+          <td>A JSON object containing data of the new user</td>
         </tr>
         <tr>
           <td>Allow users to update their user info(username)</td>
           <td>/user/[username]</td>
           <td>PUT</td>
-          <td>N/A</td>
+          <td>A JSON object of the users updated data</td>
         </tr>
         <tr>
           <td>Allow users to add a movie to their list of favorites</td>
@@ -75,12 +75,14 @@
           <td>PUT</td>
           <td>A text to the user showing that a movie has been added</td>
         </tr>
-        <tr>
+        <!--<tr>
           <td>Allow users to remove a movie from their list of favorites</td>
-          <td>/register/[username]/movies/[movieID]</td>
+          <td>/user/[username]/movies/[movieID]</td>
           <td>DELETE</td>
           <td>A text to the user showing that a movie has been removed</td>
         </tr>
+        </tr>-->
+
         <tr>
           <td>Allow existing users to deregister</td>
           <td>/user/[username]</td>
