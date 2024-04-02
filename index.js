@@ -15,21 +15,12 @@ const Movies = Models.Movie;
 const Users = Models.User;
 
 mongoose.connect(
-  process.env.CONNECTION_URI ||
-    "mongodb+srv://alexmathews:mongo@myflixdb.clctez9.mongodb.net/?retryWrites=true&w=majority&appName=myFlixDB",
+  process.env.CONNECTION_URI || "mongodb://localhost:27017/cfDB",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 );
-
-//mongoose.connect(
-//process.env.CONNECTION_URI || "mongodb://localhost:27017/cfDB",
-//{
-//useNewUrlParser: true,
-//useUnifiedTopology: true,
-//}
-//);
 
 app.use(bodyParser.json());
 
