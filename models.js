@@ -1,6 +1,13 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 
+/**
+ * mongoose is a object document mapper which stores the movie and user data
+ * @param {object}
+ * @returns {object}
+ *
+ */
+
 let movieSchema = mongoose.Schema({
   Title: { type: String, required: true },
   Director: {
