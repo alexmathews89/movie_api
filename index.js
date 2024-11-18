@@ -34,6 +34,48 @@ let auth = require("./auth")(app);
 const passport = require("passport");
 require("./passport");
 
+// Cloud Computing additional imports
+const {
+  S3Client,
+  ListObjectsV2Command,
+  PutObjectCommand,
+} = require("@aws-sdk/client-s3");
+
+const s3Client = new S3Client({
+  region: "us-west-2",
+  endpoint: "http://localhost:4566",
+  forcePathStyle: true,
+});
+
+const listObjectsParams = {
+  Bucket: "my-cool-local-bucket",
+};
+
+app.get("/images", (req, res) => {
+  listObjectsParams = {
+    Bucket: IMAGES_BUCKET,
+  };
+  s3Client
+    .send(new ListObjectsV2Command(listObjectsParams))
+    .then((listObjectsResponse) => {
+      res.send(listObjectsResponse);
+    });
+});
+
+const fs = require("fs");
+const fileUpload = require("express-fileupload");
+
+app.post("/images", (req, res) => {
+  const file = req.files.image;
+  const fileName = req.files.image.name;
+  const tempPath = `${UPLOAD_TEMP_PATH}/${fileName}`;
+  file.mv(tempPath, (err) => {
+    res.status(500);
+  });
+});
+
+// Cloud Computing additional imports end here
+
 app.use(morgan("common"));
 
 app.get("/", (req, res) => {
